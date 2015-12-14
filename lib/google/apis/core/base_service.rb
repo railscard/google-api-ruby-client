@@ -181,6 +181,7 @@ module Google
         def http(method, url, params: nil, body: nil, download_dest: nil, options: nil, &block)
           if download_dest
             command = DownloadCommand.new(method, url, body: body)
+            command.download_dest = download_dest
           else
             command = HttpCommand.new(method, url, body: body)
           end
